@@ -1,0 +1,33 @@
+name: Rubocop
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf
+        with:
+          ruby-version: .ruby-version
+
+      - name: Install gems
+        run: |
+          # Extract the exact versions of the rubocop gems from Gemfile.lock
+          rubocop_version=$(sed -n -E 's/^    rubocop \((.+)\)/\1/p' Gemfile.lock)
+          rubocop_performance_version=$(sed -n -E 's/^    rubocop-performance \((.+)\)/\1/p' Gemfile.lock)
+
+          gem install rubocop -v $rubocop_version
+          gem install rubocop-performance -v $rubocop_performance_version
+
+      - name: Run Rubocop
+        run: rubocop --except Metrics

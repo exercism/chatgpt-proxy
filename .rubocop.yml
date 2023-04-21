@@ -1,0 +1,72 @@
+require:
+  - rubocop-performance
+
+AllCops:
+  NewCops: disable
+  Exclude:
+    - "node_modules/**"
+    - "tracks/**"
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/EmptyLinesAroundAccessModifier:
+  EnforcedStyle: only_before
+
+Layout/LineLength:
+  Max: 135
+  AutoCorrect: true
+
+Metrics/MethodLength:
+  # We probably want to bring this down but let's start here for now
+  Max: 20
+
+Naming/PredicateName:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  EnforcedStyle: assign_inside_condition
+  SingleLineConditionsOnly: false
+  IncludeTernaryExpressions: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DocumentationMethod:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/MultilineTernaryOperator:
+  Enabled: false
+
+Style/ZeroLengthPredicate:
+  Enabled: false
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+Style/LambdaCall:
+  EnforcedStyle: braces

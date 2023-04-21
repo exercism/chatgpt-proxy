@@ -1,0 +1,5 @@
+.appends/
+.github/
+bin/
+node_modules/
+tests/
