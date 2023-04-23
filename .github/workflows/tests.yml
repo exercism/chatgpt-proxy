@@ -1,0 +1,33 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      ###
+      # Checkout using GitHub's checkout action
+      - uses: actions/checkout@v2
+
+      ###
+      # Setup Ruby - this needs to match the version in the Gemfile
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      # Run the tests
+      - name: Run Ruby tests
+        env:
+          EXERCISM_ENV: test
+          EXERCISM_CI: true
+
+        run: |
+          bundle exec rake test
