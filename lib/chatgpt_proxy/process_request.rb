@@ -14,7 +14,7 @@ module ChatGPTProxy
           submission_uuid:,
           type:,
           chatgpt_response:
-        }
+        }.to_json
       }
     end
 
