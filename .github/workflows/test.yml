@@ -11,15 +11,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout using GitHub's checkout action
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
 
-      # Setup Ruby - this needs to match the version in the Gemfile
       - name: Set up Ruby
-        uses: ruby/setup-ruby@a699edbce608a2c128dedad88e3b6a0e28687b3c
+        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf
         with:
           ruby-version: .ruby-version
-          bundler-cache: true
 
       # Run the tests
       - name: Run Ruby tests
