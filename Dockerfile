@@ -1,4 +1,4 @@
-FROM public.ecr.aws/lambda/ruby:3.2.2 AS runtime
+FROM public.ecr.aws/lambda/ruby:3.2 AS runtime
 
 WORKDIR ${LAMBDA_TASK_ROOT}
 
