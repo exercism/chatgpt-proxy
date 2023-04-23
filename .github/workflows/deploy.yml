@@ -27,7 +27,7 @@ jobs:
     uses: exercism/github-actions/.github/workflows/deploy-lambda.yml@main
     needs: build-and-push-image
     with:
-      function_name: chatgpt_proxy
+      function_name: chatgpt-proxy
     secrets:
       AWS_ACCOUNT_ID: ${{secrets.AWS_ACCOUNT_ID}}
       AWS_REGION: ${{secrets.AWS_REGION}}
