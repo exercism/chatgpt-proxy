@@ -4,12 +4,9 @@ WORKDIR ${LAMBDA_TASK_ROOT}
 
 ENV GEM_HOME=${LAMBDA_TASK_ROOT}
 COPY Gemfile Gemfile.lock ./
+RUN bundle install
 
-RUN bundle config set deployment 'true' && \
-    bundle config set without 'development test' && \
-    bundle install
-
-COPY . .
+COPY lib/ lib/
 
 CMD [ "lib.chatgpt_proxy.ChatGPTProxy.process" ]
 
