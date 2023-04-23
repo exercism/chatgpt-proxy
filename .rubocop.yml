@@ -70,3 +70,8 @@ Naming/VariableNumber:
 
 Style/LambdaCall:
   EnforcedStyle: braces
+
+Style/FormatString:
+  EnforcedStyle: percent
+  Enabled: false
+

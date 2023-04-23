@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-yarn pretty-quick --staged
-bin/rubocop-quick
-bin/haml-lint-quick
-bin/eslint-quick
+rubocop --except Metrics -A
+

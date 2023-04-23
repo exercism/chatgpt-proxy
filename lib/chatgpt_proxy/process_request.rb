@@ -11,8 +11,8 @@ module ChatGPTProxy
         headers: { 'Content-Type': 'application/json' },
         isBase64Encoded: false,
         body: {
-          submission_uuid: ,
-          type: ,
+          submission_uuid:,
+          type:,
           chatgpt_response:
         }
       }

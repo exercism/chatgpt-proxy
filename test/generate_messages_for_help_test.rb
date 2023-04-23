@@ -3,7 +3,6 @@ require 'test_helper'
 module ChatGPTProxy
   class GenerateMessagesForHelpTest < Minitest::Test
     def test_calls_help_correctly
-      chatgpt_text = "Response from ChatGPT"
       track_title = "Some track title"
       tests = "Some tests text"
       instructions = "Some instructions text"

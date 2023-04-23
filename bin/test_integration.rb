@@ -4,6 +4,7 @@ ENV["EXERCISM_ENV"] ||= "development"
 
 track_title = "Ruby"
 
+# rubocop:disable Naming/HeredocDelimiterNaming
 instructions = <<~'EOS'
   Implement a program that translates from English to Pig Latin."
 
@@ -197,6 +198,7 @@ submission = <<~'EOS'
 
   ```
 EOS
+# rubocop:enable Naming/HeredocDelimiterNaming
 
 require("./lib/chatgpt_proxy")
 

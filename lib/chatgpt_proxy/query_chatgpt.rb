@@ -43,4 +43,3 @@ module ChatGPTProxy
     end
   end
 end
-

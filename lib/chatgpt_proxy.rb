@@ -11,7 +11,7 @@ loader.inflector.inflect("query_chatgpt" => "QueryChatGPT")
 loader.setup
 
 module ChatGPTProxy
-  def self.process(event:, context:)
+  def self.process(event:, context:) # rubocop:disable Lint/UnusedMethodArgument
     event_body = JSON.parse(event["body"], symbolize_names: true)
     ProcessRequest.(event_body)
   end
