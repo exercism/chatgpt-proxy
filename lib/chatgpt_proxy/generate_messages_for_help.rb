@@ -1,5 +1,5 @@
 module ChatGPTProxy
-  module GenerateMessagesForHelp
+  class GenerateMessagesForHelp
     include Mandate
 
     initialize_with :track_title, :instructions, :tests, :submission
