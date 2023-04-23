@@ -1,34 +1,27 @@
-name: Test
+name: Tests
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-  workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
+      # Checkout using GitHub's checkout action
+      - uses: actions/checkout@v2
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@4b4e9c3e2d4531116a6f8ba8e71fc6e2cb6e6c8c
+      # Setup Ruby - this needs to match the version in the Gemfile
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@a699edbce608a2c128dedad88e3b6a0e28687b3c
         with:
-          install: true
+          ruby-version: .ruby-version
+          bundler-cache: true
 
-      - name: Build Docker image and store in cache
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
-        with:
-          context: .
-          push: false
-          load: true
-          tags: exercism/chatgpt_proxy
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-
-      - name: Run Tests in Docker
-        run: bin/run-tests-in-docker.sh
+      # Run the tests
+      - name: Run Ruby tests
+        run: |
+          bundle exec rake test
