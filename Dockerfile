@@ -6,7 +6,7 @@ ENV GEM_HOME=${LAMBDA_TASK_ROOT}
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
-COPY . .
+COPY lib/ lib/
 
-CMD [ "lambda_function.process" ]
+CMD [ "lib/chatgpt_proxy.ChatGPTProxy.process" ]
 
