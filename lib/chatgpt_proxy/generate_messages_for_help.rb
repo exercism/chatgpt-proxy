@@ -37,11 +37,13 @@ module ChatGPTProxy
 
     USER_MESSAGE = <<~EOM.chomp
       The user's solution is:
+
       %<submission>s
 
       ---
 
       The test suite is:
+
       %<test_suite>s
 
       ---
