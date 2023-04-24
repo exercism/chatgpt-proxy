@@ -5,9 +5,9 @@ module ChatGPTProxy
     initialize_with :data
 
     def call
-     chatgpt_response = QueryChatGPT.(type, data)
+      chatgpt_response = QueryChatGPT.(type, data)
 
-     RestClient.post(spi_url, {
+      RestClient.post(spi_url, {
         submission_uuid:,
         type:,
         chatgpt_response:
