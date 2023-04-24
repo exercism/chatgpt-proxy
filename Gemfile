@@ -5,6 +5,7 @@ gem 'mandate'
 gem 'json'
 gem 'ruby-openai'
 gem 'exercism-config', '>= 0.90.0'
+gem 'rest-client'
 
 group :development do
   gem 'rake'

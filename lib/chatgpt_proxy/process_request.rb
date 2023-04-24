@@ -5,21 +5,17 @@ module ChatGPTProxy
     initialize_with :data
 
     def call
-      {
-        statusCode: 200,
-        statusDescription: "200 OK",
-        headers: { 'Content-Type': 'application/json' },
-        isBase64Encoded: false,
-        body: {
-          submission_uuid:,
-          type:,
-          chatgpt_response:
-        }.to_json
-      }
+     chatgpt_response = QueryChatGPT.(type, data)
+
+     RestClient.post(spi_url, {
+        submission_uuid:,
+        type:,
+        chatgpt_response:
+      })
     end
 
     private
-    def chatgpt_response = QueryChatGPT.(type, data)
+    def spi_url = "#{Exercism.config.spi_url}/spi/chatgpt_responses"
     def submission_uuid = data[:submission_uuid]
     def type = data[:type].to_sym
   end

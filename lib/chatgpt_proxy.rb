@@ -2,6 +2,7 @@ require "json"
 require "mandate"
 require "fileutils"
 require "openai"
+require "rest-client"
 require "exercism-config"
 
 require "zeitwerk"
@@ -14,5 +15,13 @@ module ChatGPTProxy
   def self.process(event:, context:) # rubocop:disable Lint/UnusedMethodArgument
     event_body = JSON.parse(event["body"], symbolize_names: true)
     ProcessRequest.(event_body)
+
+    {
+      statusCode: 200,
+      statusDescription: "200 OK",
+      headers: { 'Content-Type': 'application/json' },
+      isBase64Encoded: false,
+      body: {}.to_json
+    }
   end
 end

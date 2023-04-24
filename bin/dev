@@ -9,7 +9,7 @@ set :port, 3026
 post '/ask_chatgpt' do
   content_type :json
 
-  puts ChatGPTProxy::ProcessRequest.(params)
+  ChatGPTProxy::ProcessRequest.(params)
 
   {}.to_json
 end
