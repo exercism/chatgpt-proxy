@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+ENV["EXERCISM_ENV"] = "development"
+
+require 'sinatra'
+require './lib/chatgpt_proxy'
+set :port, 3026
+
+post '/ask_chatgpt' do
+  content_type :json
+
+  puts ChatGPTProxy::ProcessRequest.(params)
+
+  {}.to_json
+end

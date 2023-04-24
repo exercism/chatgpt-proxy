@@ -9,3 +9,9 @@ It takes:
 - test files
 
 It combines these into a prompt, sends it to ChatGPT, and returns the result.
+
+## Run as if a lambda locally
+
+```bash
+docker run --rm -p 3026:8080 chatgpt-proxy
+```

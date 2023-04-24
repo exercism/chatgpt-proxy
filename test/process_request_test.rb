@@ -25,7 +25,7 @@ module ChatGPTProxy
           submission_uuid:,
           type: type.to_sym,
           chatgpt_response: text
-        }
+        }.to_json
       }
 
       assert_equal expected, ChatGPTProxy::ProcessRequest.(data)
