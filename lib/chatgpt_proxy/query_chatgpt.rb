@@ -7,7 +7,7 @@ module ChatGPTProxy
     def call
       response = chatgpt_client.chat(
         parameters: {
-          model: ,
+          model:,
           messages:,
           temperature: 0.3
         }

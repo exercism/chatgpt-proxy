@@ -19,7 +19,7 @@ module ChatGPTProxy
 
       RestClient.expects(:post).
         with(
-          "#{Exercism.config.spi_url}/spi/chatgpt_responses", 
+          "#{Exercism.config.spi_url}/spi/chatgpt_responses",
           {
             submission_uuid:,
             type: type.to_sym,
