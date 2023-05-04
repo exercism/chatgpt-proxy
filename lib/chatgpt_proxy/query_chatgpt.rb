@@ -2,16 +2,17 @@ module ChatGPTProxy
   class QueryChatGPT
     include Mandate
 
-    initialize_with :type, :data
+    initialize_with :type, :version, :data
 
     def call
       response = chatgpt_client.chat(
         parameters: {
-          model: "gpt-4",
+          model: ,
           messages:,
           temperature: 0.3
         }
       )
+
       response.dig("choices", 0, "message", "content")
     end
 
@@ -40,6 +41,10 @@ module ChatGPTProxy
         access_token: Exercism.secrets.chatgpt_access_token,
         request_timeout: 30
       )
+    end
+
+    def model
+      version == "4.0" ? "gpt-4" : "gpt-3.5-turbo"
     end
   end
 end

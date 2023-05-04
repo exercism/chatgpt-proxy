@@ -23,7 +23,7 @@ module ChatGPTProxy
         }
       )
 
-      actual = ChatGPTProxy::QueryChatGPT.(:help, {
+      actual = ChatGPTProxy::QueryChatGPT.(:help, '4.0', {
         track_title:, instructions:, tests:, submission:
       })
       assert_equal chatgpt_text, actual
