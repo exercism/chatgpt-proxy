@@ -9,7 +9,8 @@ set :port, 3026
 post '/ask_chatgpt' do
   content_type :json
 
-  ChatGPTProxy::ProcessRequest.(params)
+  data = JSON.parse(request.body.read, symbolize_names: true)
+  ChatGPTProxy::ProcessRequest.(data)
 
   {}.to_json
 end
