@@ -13,7 +13,7 @@ jobs:
     steps:
       ###
       # Checkout using GitHub's checkout action
-      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+      - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633
 
       ###
       # Setup Ruby - this needs to match the version in the Gemfile
